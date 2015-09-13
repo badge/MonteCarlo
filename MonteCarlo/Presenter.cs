@@ -103,7 +103,7 @@ namespace MonteCarlo
             //this._view.Histogram.ChartAreas[0].AxisY.Minimum = this._view.SimChart.ChartAreas[0].AxisY.Minimum;
             //this._view.Histogram.ChartAreas[0].AxisX.Minimum = this._view.SimChart.ChartAreas[0].AxisX.Minimum;
 
-            MessageBox.Show("Call premium is " + this._simulator.CallValue().ToString("C"));
+            MessageBox.Show("Call premium is " + this._simulator.CallValue().ToString("C") + " with standard error " + this._simulator.StandardError().ToString("C"));
         }
     }
 }
