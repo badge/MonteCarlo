@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using MonteCarlo.Model;
 
 namespace MonteCarlo
 {
@@ -20,6 +21,8 @@ namespace MonteCarlo
         public uint DaysToExpiry { get; private set; }
         public UInt32 SimCount { get; private set; }
 
+        public List<IDiscretizationScheme> SchemeChoices { get; private set; }
+
         public View()
         {
             InitializeComponent();
@@ -31,13 +34,25 @@ namespace MonteCarlo
             this.Sigma = Convert.ToDouble(tbSigma.Text);
             this.DaysToExpiry = Convert.ToUInt16(tbDaysToExpiry.Text);
             this.SimCount = Convert.ToUInt32(tbSimCount.Text);
+
+            // Current Discretization Scheme choices
+            this.SchemeChoices = new List<IDiscretizationScheme>()
+            {
+                new EulerDiscretization(),
+                new MilsteinDiscretization()
+            };
+
+            this.cbDiscretizationScheme.DataSource = this.SchemeChoices;
+            this.cbDiscretizationScheme.ValueMember = "Name";
+            this.cbDiscretizationScheme.DisplayMember = "Name";
         }
 
         public event Action RunSimulation;
 
         public Chart SimChart { get { return this.chSimPrice; } }
-
         public Chart Histogram { get { return this.chHistogram; } }
+
+        public IDiscretizationScheme CurrentDiscretizationScheme { get { return this.cbDiscretizationScheme.SelectedItem as IDiscretizationScheme; } }
 
         private void btnRun_Click(object sender, EventArgs e)
         {

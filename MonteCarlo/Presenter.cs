@@ -31,6 +31,7 @@ namespace MonteCarlo
         // Run the simulation
         private void RunSimulation()
         {
+            SimulatedPrice.DiscretizationScheme = this._view.CurrentDiscretizationScheme;
             SimulatedPrice.Drift = this._view.Mu;
             SimulatedPrice.Volatility = this._view.Sigma;
             SimulatedPrice.SpotPrice = this._view.StockPrice;

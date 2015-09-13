@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chSimPrice = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnRun = new System.Windows.Forms.Button();
             this.chHistogram = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -46,6 +46,7 @@
             this.tbDaysToExpiry = new System.Windows.Forms.TextBox();
             this.tbSimCount = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.cbDiscretizationScheme = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.chSimPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chHistogram)).BeginInit();
             this.SuspendLayout();
@@ -55,9 +56,9 @@
             this.chSimPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea5.AxisX.LabelStyle.Format = "0";
-            chartArea5.Name = "ChartArea1";
-            this.chSimPrice.ChartAreas.Add(chartArea5);
+            chartArea1.AxisX.LabelStyle.Format = "0";
+            chartArea1.Name = "ChartArea1";
+            this.chSimPrice.ChartAreas.Add(chartArea1);
             this.chSimPrice.Location = new System.Drawing.Point(12, 105);
             this.chSimPrice.Name = "chSimPrice";
             this.chSimPrice.Size = new System.Drawing.Size(740, 371);
@@ -78,18 +79,18 @@
             // 
             this.chHistogram.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea6.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont)));
-            chartArea6.AxisX.LabelStyle.Format = "0";
-            chartArea6.AxisY.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont)));
-            chartArea6.AxisY.LabelStyle.Format = "0";
-            chartArea6.Name = "ChartArea1";
-            this.chHistogram.ChartAreas.Add(chartArea6);
+            chartArea2.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont)));
+            chartArea2.AxisX.LabelStyle.Format = "0";
+            chartArea2.AxisY.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont)));
+            chartArea2.AxisY.LabelStyle.Format = "0";
+            chartArea2.Name = "ChartArea1";
+            this.chHistogram.ChartAreas.Add(chartArea2);
             this.chHistogram.Location = new System.Drawing.Point(758, 105);
             this.chHistogram.Name = "chHistogram";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series3.Name = "Series1";
-            this.chHistogram.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series1.Name = "Series1";
+            this.chHistogram.Series.Add(series1);
             this.chHistogram.Size = new System.Drawing.Size(228, 371);
             this.chHistogram.TabIndex = 3;
             this.chHistogram.Text = "chart1";
@@ -208,11 +209,21 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Simulation Count";
             // 
+            // cbDiscretizationScheme
+            // 
+            this.cbDiscretizationScheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDiscretizationScheme.FormattingEnabled = true;
+            this.cbDiscretizationScheme.Location = new System.Drawing.Point(833, 12);
+            this.cbDiscretizationScheme.Name = "cbDiscretizationScheme";
+            this.cbDiscretizationScheme.Size = new System.Drawing.Size(153, 21);
+            this.cbDiscretizationScheme.TabIndex = 6;
+            // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 488);
+            this.Controls.Add(this.cbDiscretizationScheme);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbSimCount);
@@ -254,6 +265,7 @@
         private System.Windows.Forms.TextBox tbDaysToExpiry;
         private System.Windows.Forms.TextBox tbSimCount;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbDiscretizationScheme;
     }
 }
 

@@ -62,17 +62,16 @@ namespace MonteCarlo.Model
             this.SimulatedPriceArray[0] = SimulatedPrice.SpotPrice;
         }
 
-        public static IDiscretizationScheme DiscretizationScheme { get; set; }   // The discretization scheme we want to use
+        public static IDiscretizationScheme DiscretizationScheme { get; set; }  // The discretization scheme we want to use
         
-        public static double Volatility { get; set; }   // Volatility (standard deviation) of the instrument
-        public static double Drift { get; set; }        // Drift (risk-free rate) of the instrument
+        public static double Volatility { get; set; }                           // Volatility (standard deviation) of the instrument
+        public static double Drift { get; set; }                                // Drift (risk-free rate) of the instrument
+        public static double SpotPrice { get; set; }                            // Starting price for the simulation
+        public static double StrikePrice { get; set; }                          // Exercise price of the option
 
-        public static double SpotPrice { get; set; }    // Starting price for the simulation
-        public static double StrikePrice { get; set; }  // Exercise price of the option
+        public static uint Steps { get; set; }                                  // Number of steps in the simulation
 
-        public static uint Steps { get; set; }          // Number of steps in the simulation
-
-        public const double Delta = 1/252.0;            // Volatility and interest are annual, so delta = 1/(Trading days in a year)
+        public const double Delta = 1/252.0;                                    // Volatility and interest are annual, so delta = 1/(Trading days in a year)
 
         public double[] SimulatedPriceArray { get; private set; }               // Simulated prices
 
@@ -98,12 +97,6 @@ namespace MonteCarlo.Model
     /// </summary>
     public class Simulator
     {
-        // Constructor
-        public Simulator()
-        {
-            SimulatedPrice.DiscretizationScheme = new MilsteinDiscretization();
-        }
-
         public event Action SimulationComplete;                             // Simulation Complete event
 
         public UInt32 nSims { get; set; }                                   // Number of simulations
